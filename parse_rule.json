@@ -1,0 +1,53 @@
+{
+  "base_url": "http://www.kumw5.com",
+  "seed_list_rule": {
+    "contentRule": "",
+    "seedUrlRule": "<a href=\"(/f-1-0-0-0-0-1-[0-9]+.html)\">([^>]*)</a>",
+    "parse_func": "manga_list_parser",
+    "fetch_func": "simple_fetcher"
+  },
+  "manga_list_rule": {
+    "contentRule": "",
+    "seedUrlRule": "<a href=\"(/[0-9]+/)\" title=\"(.+)\">",
+    "parse_func": "manga_parser",
+    "fetch_func": "simple_fetcher"
+  },
+  "manga_rule": {
+    "name": "<h1>([^>]*)</h1>",
+    "update_date": "更新时间：([^>]*)</span>",
+    "author": "<p class=\"subtitle\">作者：([^>]*)</p>" ,
+    "type" : "<span class=\"block ticai\">题材：([^>]*)</span>",
+    "manga_id": "<meta itemprop=\"url\" property=\"og:url\" content=\"http://www.kumw5.com/([0-9]+)/\" />",
+    "status": "<状态：<span>([^>]*)</span></span>",
+    "describe" : "漫画简介：([^>]*)</p>",
+    "cover": "<img class=\"banner_detail_bg\" src=\"((https|http)://[\\\\.\\\\/0-9a-zA-Z\\\\-]+)\" alt=\".+\"",
+    "contentRule": "",
+    "seedUrlRule":"<a href=\"(/mulu/[0-9]+/[0-9\\-]+.html)\" class=\"detail-more\" rel=\"nofollow\">",
+    "parse_func": "chapter_list_parser",
+    "fetch_func": "simple_fetcher"
+  },
+  "chapter_list_rule": {
+    "contentRule": "",
+    "seedUrlRule": "<a href=\"(/[0-9]+/[0-9]+.html)\" rel=\"nofollow\">([^>]*)<span>",
+    "parse_func": "base64_chapter_parser",
+    "fetch_func": "simple_fetcher"
+  },
+  "base_64_chapter_rule":{
+    "name" : "<h1 class=\"title\">(.*)</h1>",
+    "manga_id": "<meta itemprop=\"url\" property=\"og:url\" content=\"http://www.kumw5.com/([0-9]+)/[0-9]+.html\" />",
+    "chapter_id": "<meta itemprop=\"url\" property=\"og:url\" content=\"http://www.kumw5.com/[0-9]+/([0-9]+).html\" />",
+    "contentRule": "",
+    "image_base":"",
+    "base64_content": "km5_img_url='(.*)'<",
+    "parse_func": ""
+  },
+  "chapter_rule":{
+    "name" : "<div id=\"title\" style=\"max-width:30%\">(.*)</div>",
+    "manga_id": "<a href=\"/([a-z0-9]+)/\"><span class=\"d-fl\">返回</span></a>",
+    "chapter_id": "<a href=\"([0-9]+).html\" class=\"active\">.*</span></a>",
+    "contentRule": "",
+    "image_base":"https://res.xiaoqinre.com/",
+    "seedUrlRule":"(images\\\\/comic\\\\/[0-9a-zA-Z]+\\\\/[0-9a-zA-Z]+\\\\/[a-zA-Z0-9]+.jpg)",
+    "parse_func": ""
+  }
+}

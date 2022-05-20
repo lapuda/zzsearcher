@@ -1,0 +1,38 @@
+{
+  "base_url": "https://m.xianman123.com/",
+  "seed_list_rule": {
+    "contentRule": "",
+    "seedUrlRule": "<a href=\"(/f-1-0-0-0-0-1-[0-9]+.html)\">([^>]*)</a>",
+    "parse_func": "manga_list_parser",
+    "fetch_func": "simple_fetcher"
+  },
+  "manga_list_rule": {
+    "contentRule": "",
+    "seedUrlRule": "<a href=\"(/[0-9a-z]+/)\" title=\".+\">([^>]*)</a>",
+    "parse_func": "manga_parser",
+    "fetch_func": "simple_fetcher"
+  },
+  "manga_rule": {
+    "name": "<h1 class=\"title d-nowrap\">([^>]*)</h1>",
+    "update_date": "<p class=\"subtitle d-nowrap\"> 更新时间：([^>]*)</p>",
+    "author": "<p class=\"subtitle d-nowrap\"> 作者： <a href=\"/author/[0-9]+.html\">([^>]*)</a>  </p>" ,
+    "type" : "<p class=\"subtitle d-nowrap\"> 类型： <a href=\"/[a-z0-9\\-]+.html\">([^>]*)</a>  </p>",
+    "manga_id": "<link rel=\"miphtml\" href=\"https://m.xianman123.com/([0-9a-z]+)/\">",
+    "status": "<dd><span class=\"gray\">状态：</span>([^>]*)</dd>",
+    "describe" : "<p class=\"d-nowrap-clamp d-nowrap-clamp-2\">([^>]*)</p>",
+    "cover": "<img src=\"(https://inews.gtimg.com/newsapp_ls/0/[0-9]+/0)\" alt=\".+\" title=\".+\">",
+    "contentRule": "",
+    "seedUrlRule":"<li>\n                    <a href=\"(/[a-z0-9]+/[0-9]+.html)\">([^>]*)</a>\n                </li>",
+    "parse_func": "chapter_parser",
+    "fetch_func": "simple_fetcher"
+  },
+  "chapter_rule":{
+    "name" : "<div id=\"title\" style=\"max-width:30%\">(.*)</div>",
+    "manga_id": "<a href=\"/([a-z0-9]+)/\"><span class=\"d-fl\">返回</span></a>",
+    "chapter_id": "<a href=\"([0-9]+).html\" class=\"active\">.*</span></a>",
+    "contentRule": "",
+    "image_base":"https://res.xiaoqinre.com/",
+    "seedUrlRule":"(images\\\\/comic\\\\/[0-9a-zA-Z]+\\\\/[0-9a-zA-Z]+\\\\/[a-zA-Z0-9]+.jpg)",
+    "parse_func": ""
+  }
+}
